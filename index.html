@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>meme-generator</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/mems.css">
+</head>
+
+<body onload="onInit()">
+    <header class="">
+        <div class="logo">Mem-gen</div>
+        <ul class="main-nav clean-list">
+            <li><a href="" onclick="onInit()">Gallery</a></li>
+            <li><a href="">Memes</a></li>
+            <li><a href="">About</a></li>
+        </ul>
+    </header>
+    <div class="content">
+        <section class="edit-page">
+            <div class="canvas-container">
+                <canvas id="my-canvas" height="500" width="500" style="border: 5px solid black;"></canvas>
+            </div>
+            <div class="toolbar" oninput="renterMem()">
+                <button onclick="cleanCanvas()">New Paint</button>
+                <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
+                <button onclick="setChangeLine('up')">↑</button>
+                <button onclick="onSetChangeLine('down')">↓</button>
+                <div class="btn-group align">
+                    <button onclick="onSetAlignText('left')"><img src="/img/ICONS/align-to-left.png" alt=""></button>
+                    <button onclick="onSetAlignText('center')"><img src="/img/ICONS/center-text-alignment.png"
+                            alt=""></button>
+                    <button onclick="onSetAlignText('right')"><img src="/img/ICONS/align-to-right.png" alt=""></button>
+                </div>
+                <button onclick="onSetFontSize(-0.1)"><img src="/img/ICONS/decrease font - icon.png" alt=""></button>
+                <button onclick="onSetFontSize(+0.1)"><img src="/img/ICONS/increase font - icon.png" alt=""></button>
+                <label for="color1">Color 1
+                    <input oninput="onSetColor1(this.value)" type="color" id="color1"></label>
+                <label for="color2">Color 2
+                    <input oninput="onSetColor2(this.value)" type="color" id="color2" value="#ffffff"></label>
+                <label for="text1">
+                    <input oninput="onSetText(this.value)" type="text" id="text1"></label>
+            </div>
+            <!-- <button class="back" onclick="onInit()">Gallery</button> -->
+        </section>
+
+        <section class="gallery-page">
+            <div class="search"><input oninput="onSearch(this.value)" type="text" placeholder="Search"></div>
+            <div class="search-words"></div>
+            <div class="images-gallery"></div>
+        </section>
+
+    </div>
+    <footer>Be creative!</footer>
+
+
+    <script src="lib/hammer.min.js"></script>
+    <script src="js/local-storage.js"></script>
+    <script src="js/gallery-service.js"></script>
+    <script src="js/gallery-controller.js"></script>
+    <script src="js/mems-service.js"></script>
+    <script src="js/mems-controller.js"></script>
+
+
+
+</body>
+
+</html>
