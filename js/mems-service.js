@@ -1,5 +1,6 @@
 'use strict'
-
+const KEY = 'myMems';
+var gMemes = [];
 var gElCanvas = document.getElementById('my-canvas');
 
 var gMeme = {
@@ -17,9 +18,18 @@ function renderImage(imgIdx) {
     elImg.src = `./img/images/${imgIdx}.jpg`;
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
+        renderText();
     }
 }
 
+function saveMem(myMem) {
+    gMemes.push(myMem);
+    saveToStorage(KEY, gMemes);
+}
+
+function cleanLines() {
+    gMeme.lines[gMeme.selectedLineIdx].txt = '';
+}
 
 /* set func */
 
@@ -52,6 +62,12 @@ function setSize(diff) {
 
 /* get func */
 
+function getMeme() {
+    return gMeme;
+}
+
+
+/*
 function getLines() {
     return gMeme.lines;
 }
@@ -75,3 +91,4 @@ function getSize() {
 function getLoc() {
     return { x: gMeme.lines[gMeme.selectedLineIdx].x, y: gMeme.lines[gMeme.selectedLineIdx].y };
 }
+*/

@@ -24,8 +24,22 @@ var gImgs = [
     { id: 18, url: 'img/images/18.jpg', keywords: ['funny'] },
 ];
 
+function setSearchWords(txt) {
+    if (!gKeywords[txt]) gKeywords[txt] = 1;
+    else gKeywords[txt]++;
+    console.log(gKeywords);
+
+}
 
 function getImages(txt) {
     if (!txt) return gImgs;
-    return gImgs.filter(image => image.keywords.some(keyword => keyword.search(txt)));
+    // return gImgs.filter(image => image.keywords.some(keyword => keyword.search(txt)));
+    return gImgs.filter(image => image.keywords.some(function (keyword) {
+        // addWord()
+        return keyword.search(txt)
+    }));
+}
+
+function getMems() {
+    return loadFromStorage('myMems');
 }

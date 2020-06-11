@@ -4,7 +4,19 @@
 
 .images-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, 150px);
+    grid-template-rows: repeat(auto-fit, 150px);
     gap: 1rem;
+}
+
+.my-mems {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 150px);
+    grid-template-rows: repeat(auto-fill, 150px);
+    gap: 1rem;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
 }

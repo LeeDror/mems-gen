@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     max-width: 1000px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .edit-page>* {
@@ -14,6 +14,45 @@ button img {
     width: 1rem;
 }
 
-.toolbar * {
-    margin: .1rem;
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
+.toolbar>* {
+    margin: 1rem;
+}
+
+/* canvas */
+
+#my-canvas {
+    height: 100%;
+    width: 100%;
+    box-shadow: 15px 15px 15px 15px silver;
+}
+
+/* button */
+
+.toolbar button {
+    background-color: whitesmoke;
+    color: black;
+    text-align: center;
+    border-radius: 7px;
+    padding: 0.5rem;
+}
+
+.toolbar button:hover {
+    background-color: lightgray;
+}
+
+.toolbar button:focus {
+    background-color: lightgray;
+}
+
+/* 
+@media (max-width: 740px) {
+     .edit-page {
+        display: block;
+    } 
+} */
