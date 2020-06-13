@@ -14,6 +14,7 @@
     <div class="all">
         <header class="">
             <div class="logo">Mem-gen</div>
+            <button class="btn-menu" onclick="toggleMenu()">☰</button>
             <ul class="main-nav clean-list">
                 <li><a onclick="onInit()">Gallery</a></li>
                 <li><a onclick="renderMyMems()">Memes</a></li>
@@ -23,10 +24,8 @@
         <div class="content">
             <section class="edit-page">
                 <div class="canvas-container">
-                    <!-- <canvas id="my-canvas"></canvas> -->
-                    <!-- <canvas id="my-canvas" style="border: 5px solid black;"></canvas> -->
                     <canvas id="my-canvas" height="500" width="500" style="border: 5px solid black;"
-                        onmousedown="renderText()"></canvas>
+                        onmousedown="onMouseDown()"></canvas>
                 </div>
                 <div class="toolbar" oninput="renterMem()">
                     <div class="btn-group">
@@ -56,7 +55,7 @@
                         <input oninput="onSetText(this.value)" type="text" id="text1" placeholder="Enter Text Here"
                             autofocus>
                     </div>
-                    <div class="btn-group">
+                    <div class="btn-group-mem">
                         <button onclick="onDownloadCanvas(this)" download="">Download</button>
                         <button onclick="onSaveMem()" download="">Save</button>
                     </div>
@@ -65,19 +64,20 @@
 
 
             <section class="gallery-page">
-                <div class="search"><input oninput="onSearch(this.value)" type="text" placeholder="Search"></div>
-                <div class="search-words"></div>
+                <div class="search">
+                    <input oninput="onSearch(this.value)" type="text" id="search" placeholder="Search">
+                    <div class="search-words"></div>
+                </div>
                 <div class="images-gallery"></div>
             </section>
 
             <section class="my-mems">
             </section>
         </div>
-    </div>
-    <footer>
-        <div class="logo">Mem-gen</div>
-        <div>Be creative!</div>
-    </footer>
+        <footer>
+            <div class="logo">Mem-gen</div>
+            <div>Be creative!</div>
+        </footer>
     </div>
 
     <script src="lib/hammer.min.js"></script>
@@ -86,8 +86,6 @@
     <script src="js/gallery-controller.js"></script>
     <script src="js/mems-service.js"></script>
     <script src="js/mems-controller.js"></script>
-
-
 
 </body>
 

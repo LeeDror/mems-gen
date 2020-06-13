@@ -27,7 +27,6 @@ button img {
 /* canvas */
 
 #my-canvas {
-    height: 100%;
     width: 100%;
     box-shadow: 15px 15px 15px 15px silver;
 }
@@ -50,9 +49,14 @@ button img {
     background-color: lightgray;
 }
 
-/* 
+.btn-group-mem button{
+    background-color: rgb(116, 142, 197);
+}
+
+
 @media (max-width: 740px) {
      .edit-page {
-        display: block;
+        display: flex;
+        flex-direction: column;
     } 
-} */
+} 

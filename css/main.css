@@ -3,7 +3,7 @@ body {
 }
 
 .all {
-    display: grid;
+    display: flex;
     flex-direction: column;
     text-align: center;
     height: 100vh;
@@ -11,14 +11,15 @@ body {
     color: black;
     font-size: 1.5rem;
     grid-template-rows: 50px 1fr auto;
+    margin: 0 auto;
 }
 
 header {
-    padding: 10px;
     background-color: rgb(116, 142, 197);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 1rem;
 }
 
 header ul {
@@ -45,8 +46,24 @@ header ul {
     text-decoration: underline darkblue;
 }
 
- .content {
-    height: 300px
+.menu-open .main-nav {
+    display: block;
+}
+
+.btn-menu {
+    background-color: black;
+    color: white;
+    display: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.content {
+    flex: 7
+}
+
+.menu-open .main-nav {
+    display: block;
 }
 
 footer {
@@ -73,4 +90,35 @@ footer {
     text-transform: uppercase;
     border-bottom: 3px double lightcyan;
     bottom: 0;
+    font-size: 2rem;
+}
+
+/* media */
+
+@media (max-width: 740px) {
+    .edit-page {
+        display: flex;
+        flex-direction: column;
+    }
+    .main-nav {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        padding-top: 1.5em;
+        background-color: rgb(116, 142, 197);
+        opacity: 0.9;
+        display: none;
+    }
+    .main-nav li {
+        padding: 1rem 0;
+    }
+    .search {
+        display: block !important;
+    }
+    .btn-menu {
+        display: block;
+        z-index: 1;
+    }
 }

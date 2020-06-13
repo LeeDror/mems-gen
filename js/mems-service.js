@@ -2,18 +2,24 @@
 const KEY = 'myMems';
 var gMemes = [];
 var gElCanvas = document.getElementById('my-canvas');
+var gMeme = {};
 
-var gMeme = {
-    selectedImgId: 5,
-    selectedLineIdx: 0,
-    lines: [
-        { txt: '', size: 2, align: 'center', color1: 'black', color2: 'white', x: (gElCanvas.width / 2), y: (gElCanvas.height / 6) },
-        { txt: '', size: 2, align: 'center', color1: 'black', color2: 'white', x: (gElCanvas.width / 2), y: (gElCanvas.height - (gElCanvas.height / 6)) }
+function initCurMem(imgIdx) {
+    gMeme.selectedImgId = imgIdx;
+    gMeme.selectedLineIdx = 0;
+    gMeme.lines = [
+        {
+            txt: '', size: 2, align: 'center', color1: 'black', color2: 'white',
+            x: (gElCanvas.width / 2), y: (gElCanvas.height / 6)
+        },
+        {
+            txt: '', size: 2, align: 'center', color1: 'black', color2: 'white',
+            x: (gElCanvas.width / 2), y: (gElCanvas.height - (gElCanvas.height / 6))
+        }
     ]
 }
 
 function renderImage(imgIdx) {
-    gMeme.selectedImgId = imgIdx;
     var elImg = new Image();
     elImg.src = `./img/images/${imgIdx}.jpg`;
     elImg.onload = () => {
@@ -28,7 +34,13 @@ function saveMem(myMem) {
 }
 
 function cleanLines() {
-    gMeme.lines[gMeme.selectedLineIdx].txt = '';
+    gMeme.lines.forEach(line => line.txt = '')
+}
+
+/* get func */
+
+function getMeme() {
+    return gMeme;
 }
 
 /* set func */
@@ -60,35 +72,3 @@ function setSize(diff) {
     gMeme.lines[gMeme.selectedLineIdx].size += diff;
 }
 
-/* get func */
-
-function getMeme() {
-    return gMeme;
-}
-
-
-/*
-function getLines() {
-    return gMeme.lines;
-}
-
-function getColor1() {
-    return gMeme.lines[gMeme.selectedLineIdx].color1;
-}
-
-function getColor2() {
-    return gMeme.lines[gMeme.selectedLineIdx].color2;
-}
-
-function getAlign() {
-    return gMeme.lines[gMeme.selectedLineIdx].align;
-}
-
-function getSize() {
-    return gMeme.lines[gMeme.selectedLineIdx].size;
-}
-
-function getLoc() {
-    return { x: gMeme.lines[gMeme.selectedLineIdx].x, y: gMeme.lines[gMeme.selectedLineIdx].y };
-}
-*/

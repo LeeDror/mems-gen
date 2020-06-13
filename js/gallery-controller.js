@@ -2,14 +2,15 @@
 
 function onInit() {
     renderImages();
+    renderSearchWord();
     document.querySelector('.edit-page').style.display = "none";
     document.querySelector('.gallery-page').style.display = "block";
     document.querySelector('.my-mems').style.display = "none";
 }
 
 function onSearch(txt) {
-    setSearchWords(txt);
     renderImages(txt);
+    renderSearchWord();
 }
 
 function renderImages(txt) {
@@ -28,5 +29,25 @@ function renderMyMems() {
         return `<img src="${mem}">`
     })
     document.querySelector('.my-mems').innerHTML = strHtmls.join('');
-    document.querySelector('.my-mems').style.display = "flex";
+    document.querySelector('.my-mems').style.display = "grid";
+}
+
+function renderSearchWord() {
+    var keyWords = getKeyWords();
+    var strHtml = '';
+    for (var word in keyWords) {
+        strHtml += `<div class="size-${keyWords[word]}" onclick="searchWord('${word}')">${word}</div>`;
+        var elWord = document.querySelector(`.size-${keyWords[word]}`)
+        if (elWord) elWord.style.fontSize = `${keyWords[word]}rem`;
+    }
+    document.querySelector('.search-words').innerHTML = strHtml;
+}
+
+function searchWord(word) {
+    document.getElementById('search').value = word;
+    onSearch(word);
+}
+
+function toggleMenu() {
+    document.body.classList.toggle('menu-open');
 }

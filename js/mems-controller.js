@@ -5,19 +5,16 @@ var gCtx;
 
 function onEditInit(imgIdx) {
     gCtx = gElCanvas.getContext('2d');
-    renderImage(imgIdx);
-
-    document.querySelector('.edit-page').style.display = "grid";
+    initCurMem(imgIdx);
+    renterMem(imgIdx);
+    document.getElementById('text1').value = '';
+    document.querySelector('.edit-page').style.display = "flex";
     document.querySelector('.gallery-page').style.display = "none";
 }
-
-
-
 
 function renterMem() {
     renderImage(getMeme().selectedImgId);
     renderText();
-    // gCtx = gElCanvas.getContext('2d');
 }
 
 function renderText() {
@@ -31,26 +28,9 @@ function renderText() {
         gCtx.font = `${gTextSize}rem Impact`;
         gCtx.fillText(line.txt, line.x, line.y);
         gCtx.strokeText(line.txt, line.x, line.y);
-
-        // document.body.addEventListener("mousedown", function (event) {
-        //     {
-        //         document.body.addEventListener("mousemove", onMouseMove);
-        //         document.body.addEventListener("mouseup", onMouseUp);
-        //     };
-        // })
     });
 }
 
-function onMouseMove(event) {
-    var mem = getMeme();
-    mem.lines[mem.selectedLineIdx].x = event.clientX;
-    mem.lines[mem.selectedLineIdx].y = event.clientY;
-    renderText();
-}
-function onMouseUp(event) {
-    document.body.removeEventListener("mousemove", onMouseMove);
-    document.body.removeEventListener("mouseup", onMouseUp);
-}
 
 function renderCurLine() {
     var meme = getMeme();
@@ -65,7 +45,7 @@ function onSetChangeLine(dir) {
 function cleanCanvas() {
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
     cleanLines();
-    renderImage(getMeme().selectedImgId);
+    renterMem(getMeme().selectedImgId);
     renderCurLine();
 }
 
@@ -106,3 +86,28 @@ function onSetText(text) {
     setText(text);
     renterMem();
 }
+
+// drag
+/*
+function onMouseDown() {
+    document.body.addEventListener("mousedown", function (event) {
+        {
+            document.body.addEventListener("mousemove", onMouseMove);
+            document.body.addEventListener("mouseup", onMouseUp);
+        };
+    })
+}
+
+function onMouseMove(event) {
+    var mem = getMeme();
+    mem.lines[mem.selectedLineIdx].x = event.clientX;
+    mem.lines[mem.selectedLineIdx].y = event.offsetY;   
+}
+
+function onMouseUp(event) {
+    document.body.removeEventListener("mousemove", onMouseMove);
+    document.body.removeEventListener("mouseup", onMouseUp);
+    var meme = getMeme();
+    renterMem(meme.selectedLineIdx);
+}
+*/

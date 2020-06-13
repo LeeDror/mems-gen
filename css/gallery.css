@@ -14,9 +14,21 @@
     grid-template-columns: repeat(auto-fill, 150px);
     grid-template-rows: repeat(auto-fill, 150px);
     gap: 1rem;
+    margin: 10px;
 }
 
 img {
     max-width: 100%;
-    max-height: 100%;
+    /* max-height: 100%; */
+}
+
+.search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} 
+
+.search-words>* {
+    display: inline-block;
+    padding: .5rem;
 }
