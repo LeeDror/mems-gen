@@ -1,6 +1,6 @@
 .edit-page {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    justify-content: center;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -49,14 +49,26 @@ button img {
     background-color: lightgray;
 }
 
-.btn-group-mem button{
+.btn-group-mem button {
     background-color: rgb(116, 142, 197);
 }
 
+.font .impact {
+    font-family: Impact;
+}
 
-@media (max-width: 740px) {
-     .edit-page {
-        display: flex;
-        flex-direction: column;
-    } 
-} 
+.font .arial {
+    font-family: Arial;
+}
+
+.font .cambria {
+    font-family: Cambria;
+}
+
+.font .fantasy {
+    font-family: fantasy;
+}
+
+.font .cursive {
+    font-family: cursive;
+}

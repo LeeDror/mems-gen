@@ -1,12 +1,10 @@
-.gallery-page>* {
-    margin: 10px;
-}
-
 .images-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, 150px);
     grid-template-rows: repeat(auto-fit, 150px);
     gap: 1rem;
+    justify-content: space-around;
+    padding: 0.5rem;
 }
 
 .my-mems {
@@ -19,16 +17,23 @@
 
 img {
     max-width: 100%;
-    /* max-height: 100%; */
 }
 
 .search {
     display: flex;
     justify-content: space-between;
     align-items: center;
-} 
+    padding: 0.5rem;
+    background-color: white;
+}
 
 .search-words>* {
     display: inline-block;
-    padding: .5rem;
+    padding: .2rem 0.5rem;
+    background-color: rgb(12, 12, 151);
+    color: white;
+    border-radius: 1rem;
+    font-size: 1rem;
+    margin: .1rem;
+    font-family: monospace;
 }

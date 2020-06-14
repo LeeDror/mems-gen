@@ -6,12 +6,13 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     color: black;
     font-size: 1.5rem;
     grid-template-rows: 50px 1fr auto;
     margin: 0 auto;
+    background-color: #e3e3e3;
 }
 
 header {
@@ -33,6 +34,7 @@ header ul {
     padding: 1rem;
     height: 100%;
     transition: opacity .5s, color .5s, text-decoration .5s;
+    font-family: sans-serif;
 }
 
 .main-nav li a:hover {
@@ -47,7 +49,7 @@ header ul {
 }
 
 .menu-open .main-nav {
-    display: block;
+    display: flex;
 }
 
 .btn-menu {
@@ -55,15 +57,11 @@ header ul {
     color: white;
     display: none;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 .content {
-    flex: 7
-}
-
-.menu-open .main-nav {
-    display: block;
+    flex: 7;
 }
 
 footer {
@@ -72,15 +70,6 @@ footer {
     align-items: center;
     padding: 10px;
     background-color: rgb(116, 142, 197);
-    margin-top: 1rem;
-}
-
-/* lists */
-
-.clean-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
 }
 
 /*logo*/
@@ -115,10 +104,15 @@ footer {
         padding: 1rem 0;
     }
     .search {
-        display: block !important;
+        display: block;
     }
     .btn-menu {
         display: block;
         z-index: 1;
     }
-}
+    .menu-open .btn-menu {
+        display: none;
+    }
+    .toolbar>* {
+        margin: .3rem;
+    }

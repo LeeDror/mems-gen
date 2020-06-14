@@ -1,6 +1,6 @@
 'use strict'
 
-var gKeywords = { 'happy': 12 };
+var gKeywords = { 'happy': 7, 'crazy': 1, 'sarcastic': 5 };
 
 var gImgs = [
     { id: 1, url: 'img/images/1.jpg', keywords: ['happy', 'animal'] },
@@ -25,14 +25,11 @@ var gImgs = [
 
 function getImages(txt) {
     if (!txt) return gImgs;
-    return gImgs.filter(image => image.keywords.some(function (keyword) {
-        if (keyword === txt) setSearchWords(txt);
-        if (keyword.search(txt) === -1) return false;
-        else return true;
-    }))
+    return gImgs.filter(image => image.keywords.some(keyword => keyword.includes(txt)))
 }
 
 function setSearchWords(txt) {
+    if (!gImgs.filter(image => image.keywords.filter(keyword => keyword === txt))) return;
     if (!gKeywords[txt]) gKeywords[txt] = 1;
     else gKeywords[txt]++;
 }
