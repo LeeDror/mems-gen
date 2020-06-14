@@ -29,7 +29,8 @@ function getImages(txt) {
 }
 
 function setSearchWords(txt) {
-    if (!gImgs.filter(image => image.keywords.filter(keyword => keyword === txt))) return;
+    var x = gImgs.filter(image => image.keywords.some(keyword => keyword === txt));
+    if (!x.length) return;
     if (!gKeywords[txt]) gKeywords[txt] = 1;
     else gKeywords[txt]++;
 }
