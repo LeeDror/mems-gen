@@ -26,7 +26,8 @@
             <section class="edit-page">
                 <div class="canvas-container">
                     <canvas id="my-canvas" height="400" width="400" style="border: 5px solid black;"
-                        onmousedown="onMouseDown(event)" onmousemove="onMouseMove(event)" onmouseup="onMouseUp()"></canvas>
+                        onmousedown="onMouseDown(event)" onmousemove="onMouseMove(event)"
+                        onmouseup="onMouseUp()"></canvas>
                 </div>
                 <div class="toolbar" oninput="renderMem()">
                     <div class="btn-group">
@@ -36,11 +37,11 @@
                         <button onclick="onAddLine()">+</button>
                     </div>
                     <div class="btn-group">
-                        <button onclick="onSetAlignText('left')"><img src="img/icons/align-to-left.png"
+                        <button onclick="onSetAlignText('right')"><img src="img/icons/align-to-left.png"
                                 alt=""></button>
                         <button onclick="onSetAlignText('center')"><img src="img/icons/center-text-alignment.png"
                                 alt=""></button>
-                        <button onclick="onSetAlignText('right')"><img src="img/icons/align-to-right.png"
+                        <button onclick="onSetAlignText('left')"><img src="img/icons/align-to-right.png"
                                 alt=""></button>
                     </div>
                     <div class="btn-group font">
@@ -51,10 +52,8 @@
                             <option class="cursive" value="Cursive">Cursive</option>
                             <option class="fantasy" value="Fantasy">Fantasy</option>
                         </select>
-                        <button onclick="onSetFontSize(-0.5)"><img src="img/icons/decrease-font-icon.png"
-                                alt="-"></button>
-                        <button onclick="onSetFontSize(+0.5)"><img src="img/icons/increase-font-icon.png"
-                                alt="+"></button>
+                        <button onclick="onSetFontSize(-0.5)">A-</button>
+                        <button onclick="onSetFontSize(+0.5)">A+</button>
                     </div>
                     <div class="btn-group">
                         <input oninput="onSetStrokeColor(this.value)" type="color" id="color1">
